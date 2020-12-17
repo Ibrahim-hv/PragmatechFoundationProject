@@ -1,2 +1,2 @@
-# Yoxalam
+# Yoxalama
 ## Niye Lazımdır bu?
