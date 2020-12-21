@@ -1,15 +1,18 @@
+
 #mavi{
-    width: 900;
-    height: 200;
+    width: 900px;
+    height: 200px;
     background-color: blue;
 }
+
 #qirmizi{
-    width: 900;
-    height: 200;
+    width: 900px;
+    height: 200px;
     background-color: red;
 }
+
 #yasil{
-    width: 900;
-    height: 200;
+    width: 900px;
+    height: 200px;
     background-color: green;
 }
