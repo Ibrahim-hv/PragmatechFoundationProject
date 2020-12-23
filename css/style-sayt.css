@@ -1,0 +1,48 @@
+body{
+    margin: 0px;
+}
+
+#mainpage{
+height: 735px;
+background: green url('../img/main\ photo.jpg');
+background-size: 1650px;
+background-position: center -180px;
+}
+.menubar{
+padding: 20px;
+background: rgba(255,255,255,.8);
+border: 1px solid red;
+
+}
+.menubarcenter{
+    width: 1234px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+
+}
+.logo{
+    width: 200px;
+}
+.logo img{
+width: 120px;
+}
+.links{
+ width: 420px;
+    border: 1px solid black;
+}
+.links ul{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+.links ul li{
+    border: 1px solid yellow;
+    list-style: none;
+    
+}
+.slide{
+border: 1px solid black;
+}
