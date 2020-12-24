@@ -1,5 +1,7 @@
 body{
     margin: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
 }
 
 #mainpage{
@@ -9,14 +11,12 @@ background-size: 1650px;
 background-position: center -180px;
 }
 .menubar{
-padding: 20px;
 background: rgba(255,255,255,.8);
-border: 1px solid red;
-
+height: 79px;
+border-bottom: 3px solid darkgrey;
 }
 .menubarcenter{
-    width: 1234px;
-    border: 1px solid red;
+    width: calc(100% - 100px);
     display: flex;
     justify-content: space-between;
     margin: 0px auto;
@@ -24,25 +24,47 @@ border: 1px solid red;
 }
 .logo{
     width: 200px;
+    margin-top: 7px;
 }
 .logo img{
 width: 120px;
 }
-.links{
- width: 420px;
-    border: 1px solid black;
-}
 .links ul{
     margin: 0px;
-    padding: 0px;
     display: flex;
-    justify-content: flex-end;
-}
-.links ul li{
-    border: 1px solid yellow;
-    list-style: none;
     
 }
-.slide{
-border: 1px solid black;
+.links ul li{
+    list-style: none;
+    padding: 27px 10px;
+    cursor: pointer;
+    transition: all .500ms linear;
+}
+.links ul li:hover{
+    border-bottom: 3px solid green;
+    color:green;
+}
+.texonslide{
+    width: calc(100%/5 - 5px);
+    padding: 0px 10px;
+    background-color: white;
+    margin: 50px calc(100%/5 - 200px);
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    transition: all .500ms linear;
+}
+.texonslide h3{
+    font-weight: bold;
+    font-size: 32px;
+    margin: 2px 0px;
+
+}
+.texonslide:hover{
+    box-shadow: 0px 0px 10px grey;
+}
+.texonslide img{
+    width: calc(100% + 20px);
+    margin: 0px -10px;
+   
 }
