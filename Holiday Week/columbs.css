@@ -9,13 +9,16 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.flex{
-    display: flex;  
+.mar{
+    margin: 5px 10px;
 }
-/* 1ci hisse */
+.flex{
+    display: flex; 
+    box-sizing: border-box; 
+}
+/* Row 1 */
 .btn{
-    height: 22px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
     transition: all .3s ease;
 }
@@ -28,16 +31,17 @@ body{
     color: white;
 }
 .txt-options{
-    font-size: 35px;
+    font-size: 26px;
 }
 .box2{
     padding: 0 10px;
-    font-size: 19px;
+    font-size: 12px;
 }
 .box3{
     text-align: center;
-    font-size: 20px;
+    font-size: 14px;
 }
+/* Row 2 */
 .row ul{
     display: flex;
     justify-content: space-between;
@@ -51,9 +55,9 @@ body{
     padding: 0 30px;
 }
 /* 12 Greid Common */
-[class^="col-"]{
+[class^="col-"] {
     box-sizing: border-box;
-    padding: 10px;
+    /* padding: 5px 5px; */
 }
 .col-1{
     width: calc((100%/12)*1);
@@ -91,4 +95,27 @@ body{
 .col-12{
     width: calc((100%/12)*12);
 }
-/* 2ci hisse */
+/* Row 3 */
+
+
+
+/* Row 4 */
+.boxmini{
+    height: 55px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 5px;
+}
+.box{
+    height: 130px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 5px;
+}
+.boxmax{
+    height: 270px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
