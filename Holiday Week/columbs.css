@@ -130,8 +130,17 @@ body{
     border: 1px solid red;
     box-sizing: border-box;
     margin: 5px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.boxmax ul{
+    justify-content: space-between;
 }
 .padd{
     padding: 0px 0px 10px 20px;
+}
+.boxmini:hover{
+    cursor: pointer;
+    border: 1px solid black;
 }
 
