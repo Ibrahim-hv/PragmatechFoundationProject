@@ -8,7 +8,6 @@ body{
 .row{
     display: flex;
     justify-content: space-between;
-    align-items: center
 }
 .mar{
     margin: 5px 10px;
@@ -143,4 +142,11 @@ body{
     cursor: pointer;
     border: 1px solid black;
 }
-
+.rowtwo{
+    margin: 10px 0px 0px 0px;
+}
+.box-a{
+    height: 120px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 5px;
