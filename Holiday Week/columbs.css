@@ -16,6 +16,17 @@ body{
     display: flex; 
     box-sizing: border-box; 
 }
+.flexa{
+    display: flex; 
+    box-sizing: border-box; 
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+p{
+    margin: 0px;
+    position: relative;
+    top: 280px;
+}
 /* Row 1 */
 .btn{
     padding: 5px 10px;
@@ -57,8 +68,9 @@ body{
 /* 12 Greid Common */
 [class^="col-"] {
     box-sizing: border-box;
-    /* padding: 5px 5px; */
+    padding: 5px 5px;
 }
+
 .col-1{
     width: calc((100%/12)*1);
 }
@@ -99,11 +111,14 @@ body{
 .row-3{
     justify-content: space-between;
     display: flex;
-    padding: 20px 5px 0px 5px;
+    padding: 20px 10px 0px 10px;
     align-items: center
 }
 .col-4 b{
     padding: 0 0 0 20px;
+}
+.pad{
+    padding: 0px;
 }
 
 
@@ -116,27 +131,26 @@ body{
     height: 60px;
     border: 1px solid red;
     box-sizing: border-box;
-    margin: 5px;
 }
 .box{
     height: 158px;
     border: 1px solid red;
     box-sizing: border-box;
-    margin: 5px;
 }
 .boxmax{
     height: 326px;
     border: 1px solid red;
     box-sizing: border-box;
-    margin: 5px;
-    align-items: flex-end;
-    justify-content: space-between;
+    padding: 0px 10px;
 }
 .boxmax ul{
     justify-content: space-between;
 }
 .padd{
-    padding: 0px 0px 10px 20px;
+    padding: 0px 5px 10px 10px;
+}
+.padsh{
+    padding: 10px 0px 0px 0px;
 }
 .boxmini:hover{
     cursor: pointer;
@@ -149,4 +163,7 @@ body{
     height: 120px;
     border: 1px solid red;
     box-sizing: border-box;
-    margin: 5px;
+}
+.row-m{
+    padding: 0px 0px 49px 0px;
+}
