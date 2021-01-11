@@ -1,0 +1,88 @@
+body, h1, h2, h3, h4, h5, p{
+    margin: 0px;
+    padding: 0px;
+}
+*{
+    transition: all .2s linear;
+}
+#post{
+    padding: 100px 0px;
+    background-color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+.post-item{
+    box-shadow: 0 0 3px gray;
+    min-height: 425px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: white;
+}
+.post-item-image{
+    position: relative;
+    z-index: 1;
+}
+.post-item-image img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-position: center;
+}
+.post-item-date{
+    width: 60px;
+    background: white;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+}
+.post-item-img-overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(131, 76, 3, .0);
+    z-index: 2;
+}
+
+.post-item-img-overlay:hover{
+    background: rgba(131, 76, 3, .6);
+}
+.post-item h3{
+    font-family: "Poppins" , sans-serif;
+    color: green;
+    font-size: 1.7em;
+    font-weight: 600;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+.post-item h3:hover{
+    color: rgb(180, 118, 36);
+}
+.post-item-info{
+    padding: 15px 0px;
+    border-top: 1px solid rgb(233, 208, 176);
+    border-bottom: 1px solid rgb(233, 208, 176);
+}
+.post-item-info span{
+    color: burlywood;
+    margin-right: 40px;
+}
+.post-item-info span i{
+    margin-right: 7px;
+    color: rgb(180, 118, 36);
+}
+.post-item-logo{
+    object-position: center;
+    object-fit: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 4;
+}
