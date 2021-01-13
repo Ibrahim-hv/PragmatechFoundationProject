@@ -3,7 +3,7 @@ body, h1, h2, h3, h4, h5, p{
     padding: 0px;
 }
 *{
-    transition: all .2s linear;
+    transition: all .4s ease;
 }
 #post{
     padding: 100px 0px;
@@ -20,19 +20,21 @@ body, h1, h2, h3, h4, h5, p{
     padding: 15px;
     background-color: white;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 .post-item-image{
     height: 250px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
     
 }
 .post-item-image img{
     width: 100%;
     height: 250px;
     object-fit: cover;
-    background-position: center;
-    
+    background-position: center;   
+    transition: all .6s linear; 
 }
 .post-item-date{
     position: absolute;
@@ -47,9 +49,7 @@ body, h1, h2, h3, h4, h5, p{
     background: rgb(131, 76, 3);
     color: white;
     text-align: center;
-    
 }
-
 .post-item h3{
     font-family: "Poppins" , sans-serif;
     color: green;
@@ -59,9 +59,6 @@ body, h1, h2, h3, h4, h5, p{
     letter-spacing: 1px;
     padding: 10px 0px;
     cursor: pointer;
-}
-.post-item h3:hover{
-    color: rgb(180, 118, 36);
 }
 .post-item-info{
     padding: 15px 0px;
@@ -76,32 +73,37 @@ body, h1, h2, h3, h4, h5, p{
     margin-right: 7px;
     color: rgb(180, 118, 36);
 }
-
 .post-item-img-overlay{
     width: 100%;
     height: 100%;
+    background: rgba(131, 76, 3, 0);
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: 2;
-    cursor: pointer;
-}
-
-.post-item-img-overlay:hover{
-    background: rgba(131, 76, 3, .6); 
 }
 .logo img{
-    height: 50%;
+    height: 40%;
     object-fit: contain;
     position: absolute;
     top: 50px;
     z-index: 3;
     opacity: 0.0;
-    cursor: pointer;
 }
-.logo img:hover{
-    height: 60%;
+.post-item:hover{
+    box-shadow: 0 0 5px black;
+}
+.post-item h3:hover{
+    color: rgb(180, 118, 36);
+}
+.post-item:hover .post-item-img-overlay{
+    background: rgba(131, 76, 3, .6);
+    transform: scaleY(-1);
+}
+.post-item:hover .logo img{
+    height: 50%;
     opacity: 1.0;
-    
 }
-
+.post-item:hover .post-item-image img{
+    transform: scale(1.1);
+}
