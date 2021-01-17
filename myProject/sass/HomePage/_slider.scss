@@ -1,12 +1,26 @@
 #slider{
+    
     .col-12{
+        width: 100%;
+        height: 670px;
         padding: 0px;
     }
    .col-12 img{
        width: 100%;
        object-fit: cover;
-       height: 590px;
-       object-position: center -180px;
+       height: 670px;
+       object-position: center -200px;  
+   }
+   .col-12 span{
+       font-family: Arial, Helvetica, sans-serif;
+       box-sizing: border-box;
+       padding: 10px 45px;
+       border-radius: 75px;
+       font-size: 30px;
+       position: absolute;
+       top: 450px;
+       left: 50px;
+       color: $main-color-two;
    }
 
 }
