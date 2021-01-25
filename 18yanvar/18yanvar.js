@@ -14,43 +14,53 @@ function foo2(value){
 }
 
 
-
 // 1 - Massivdeki ededlerin cemini tapan kod yazin
-
 let Toplam=ededler.reduce(Topla);
-console.log(Toplam)
+console.log(Toplam);
 
 
 // 2 - Massivdeki cut ededlerin cemini tapin
-
 let cutEdedler=ededler.filter(foo);
 let cutEdedlerinCemi=cutEdedler.reduce(Topla);
-console.log(cutEdedlerinCemi)
+console.log(cutEdedlerinCemi);
 
 
 // 3 - Massivdeki tek ededlerin cemini tapin
-
 let tekEdedler=ededler.filter(foo2);
 let tekEdedlerinCemi=tekEdedler.reduce(Topla);
-console.log(tekEdedlerinCemi)
+console.log(tekEdedlerinCemi);
 
 
 // 4 - Massivde tekrarlanan nece eded oldugunu tapin
+function Tap(){
+    let tekrarlananEdedler = [];
+    let ededlerYeni=ededler.sort()
+    for (let i = 0; i < ededlerYeni.length; i++) {
+     if (ededlerYeni[i + 1] == ededlerYeni[i]) {
+        tekrarlananEdedler.push(ededlerYeni[i]);
+  }
+}
+    return tekrarlananEdedler
+}
+console.log(Tap().length +' / '+ Tap())    
 
-// let tekrarlananEdedler
-// console.log(tekrarlananEdedler)
 
 
 
 // 5 Massivde nece eded ikireqemli eded oldugunu tapin
+let ikireqemliler=0;
+for(i=0;i<ededler.length;i++){
+    if(String(ededler[i]).length==2){
+        ikireqemliler++;
+    }
+    
+}
+console.log(ikireqemliler)
 
 
 
 // 6 Massivdeki ededleri azalan sira ile ekrana yazdirin
-
-function eksCixma(a, b){
-    return b - a;
-}
-let azalanSira=ededler.sort(eksCixma)
-console.log(azalanSira);
+function eksCixma(a,b){return b - a}
+let azalanSira=ededler.sort(eksCixma);
+console.log(azalanSira.join());
 
