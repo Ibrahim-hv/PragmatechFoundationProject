@@ -2213,7 +2213,7 @@ body {
 #main {
   -webkit-transition: margin-left .5s;
   transition: margin-left .5s;
-  padding: 0px 16px;
+  padding: 0px 15px;
 }
 
 @media screen and (max-height: 450px) {
@@ -2241,7 +2241,7 @@ body {
 .sale-diaqram {
   width: 100%;
   border-radius: 5px;
-  height: 420px;
+  height: 440px;
   background-color: white;
   -webkit-box-shadow: 0px 0px 5px darkgray;
           box-shadow: 0px 0px 5px darkgray;
@@ -2257,16 +2257,22 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 15px 25px;
-  background-color: white;
+  background-color: #e1fbd4;
   border-bottom: 1px solid #4dbd13;
 }
 
 .dia-info .btn-sale {
-  padding: 5px 10px;
-  border: 1px solid #4dbd13;
+  padding: 5px 30px;
   border-radius: 5px;
   cursor: pointer;
-  background-color: lightgray;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.dia-info .btn-sale:hover {
+  color: white;
+  background-color: #4dbd13;
 }
 
 .activeBox {
@@ -2277,12 +2283,18 @@ body {
   text-align: center;
   line-height: 20px;
   padding: 15px;
-  background-color: white;
+  border: 3px solid white;
+  background-color: #61e81b;
   -webkit-box-shadow: 0px 0px 5px darkgray;
           box-shadow: 0px 0px 5px darkgray;
 }
 
-.toplamGelir {
+.activeBox:hover {
+  border: 5px solid white;
+  background-color: #4dbd13;
+}
+
+.totalRevenue {
   width: 100%;
   border-radius: 5px;
   height: 150px;
@@ -2290,41 +2302,139 @@ body {
           box-shadow: 0px 0px 5px darkgray;
 }
 
+.totalRevenue .totalInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.totalRevenue .totalInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
 .todayStatus {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
   border-radius: 5px;
-  height: 340px;
+  height: 360px;
   -webkit-box-shadow: 0px 0px 5px darkgray;
           box-shadow: 0px 0px 5px darkgray;
+}
+
+.todayStatus .todayInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.todayStatus .todayInfo p {
+  font-size: 12px;
+  color: gray;
 }
 
 .companyList {
-  margin-top: 20px;
   width: 100%;
   border-radius: 5px;
   height: 340px;
+  background-color: white;
   -webkit-box-shadow: 0px 0px 5px darkgray;
           box-shadow: 0px 0px 5px darkgray;
 }
 
+.companyList .companyInfo {
+  background-color: #e1fbd4;
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.companyList .companyInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.companyTab {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.companyTab th {
+  padding: 6px 0px;
+  background-color: #61e81b;
+  border-bottom: 1px solid darkgray;
+}
+
+.companyTab td {
+  padding: 5px;
+  text-align: center;
+}
+
+.companyTab td img {
+  height: 40px;
+}
+
 .customerList {
-  margin-top: 20px;
   width: 100%;
   border-radius: 5px;
   height: 340px;
+  background-color: white;
   -webkit-box-shadow: 0px 0px 5px darkgray;
           box-shadow: 0px 0px 5px darkgray;
+}
+
+.customerList .customerInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.customerList .customerInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.customerTab {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.customerTab th {
+  padding: 6px 0px;
+  background-color: #61e81b;
+  border-bottom: 1px solid darkgray;
+}
+
+.customerTab td {
+  padding: 5px;
+  text-align: center;
+}
+
+.customerTab td img {
+  height: 40px;
 }
 
 .footer {
   width: 100%;
   padding: 10px;
-  height: 40px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 30px;
+  color: #007401;
+  font-size: 25px;
+  -webkit-box-shadow: 0px -3px 5px darkgray;
+          box-shadow: 0px -3px 5px darkgray;
+  background-color: #e1fbd4;
 }

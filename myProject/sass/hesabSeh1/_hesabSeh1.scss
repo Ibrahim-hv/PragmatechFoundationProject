@@ -69,7 +69,7 @@ body{
   
   #main {
     transition: margin-left .5s;
-    padding: 0px 16px;
+    padding: 0px 15px;
   }
   
   @media screen and (max-height: 450px) {
@@ -88,7 +88,7 @@ body{
   .sale-diaqram{
       width: 100%;
       border-radius: 5px;
-      height: 420px;
+      height: 440px;
     background-color: white;
     box-shadow: 0px 0px 5px darkgray;
 
@@ -99,14 +99,18 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 15px 25px;
-    background-color: white;
+    background-color: lighten($main-color-two, 50%);
     border-bottom: 1px solid $main-color-two;
     .btn-sale{
-      padding: 5px 10px;
-      border: 1px solid $main-color-two;
+      padding: 5px 30px;
       border-radius: 5px;
       cursor: pointer;
-      background-color: lightgray;
+      text-align: center;
+      box-shadow: 0px 0px 5px darkgray;
+      &:hover{
+        color: white;
+        background-color: $main-color-two;
+      }
 
     }
 }
@@ -118,41 +122,128 @@ body{
   text-align: center;
   line-height: 20px;
   padding: 15px;
-  background-color: white;
+  border: 3px solid white;
+  background-color: lighten($main-color-two, 10%);
   box-shadow: 0px 0px 5px darkgray;
+  &:hover{
+    border: 5px solid white;
+    background-color: $main-color-two;
+  }
 
 }
-.toplamGelir{
+.totalRevenue{
   width: 100%;
   border-radius: 5px;
   height: 150px;
   box-shadow: 0px 0px 5px darkgray;
+  .totalInfo{
+    width: 100%;
+    padding: 10px 20px;
+    height: 56px;
+    background-color: lighten($main-color-two, 50%);
+    border-bottom: 1px solid $main-color-two;
+    p{
+      font-size: 12px;
+      color: gray;
+    }
+  }
 }
 .todayStatus{
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
   border-radius: 5px;
-  height: 340px;
+  height: 360px;
   box-shadow: 0px 0px 5px darkgray;
+  .todayInfo{
+    width: 100%;
+    padding: 10px 20px;
+    height: 56px;
+    background-color: lighten($main-color-two, 50%);
+    border-bottom: 1px solid $main-color-two;
+    p{
+      font-size: 12px;
+      color: gray;
+    }
+  }
 }
 .companyList{
-  margin-top: 20px;
   width: 100%;
   border-radius: 5px;
   height: 340px;
+  background-color: white;
   box-shadow: 0px 0px 5px darkgray;
+  .companyInfo{
+    background-color: lighten($main-color-two, 50%);
+    width: 100%;
+    padding: 10px 20px;
+    height: 56px;
+    border-bottom: 1px solid $main-color-two;
+    p{
+      font-size: 12px;
+      color: gray;
+    }
+  }
 }
+.companyTab{
+  margin: 0px auto;
+  width: 100%;
+  th{
+    padding: 6px 0px;
+    background-color: lighten($main-color-two, 10%);
+    border-bottom: 1px solid darkgray; 
+  }
+  td{
+    padding: 5px;
+    text-align: center;
+    img{
+      height: 40px;
+    }
+  }
+} 
+
 .customerList{
-  margin-top: 20px;
   width: 100%;
   border-radius: 5px;
   height: 340px;
+  background-color: white;
   box-shadow: 0px 0px 5px darkgray;
+  .customerInfo{
+    width: 100%;
+    padding: 10px 20px;
+    height: 56px;
+    background-color: lighten($main-color-two, 50%);
+    border-bottom: 1px solid $main-color-two;
+    p{
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}
+.customerTab{
+  margin: 0px auto;
+  width: 100%;
+  th{
+    padding: 6px 0px;
+    background-color: lighten($main-color-two, 10%);
+    border-bottom: 1px solid darkgray; 
+  }
+  td{
+    padding: 5px;
+    text-align: center;
+    img{
+      height: 40px;
+    }
+  }
 }
 .footer{
   width: 100%;
   padding: 10px;
-  height: 40px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
+  color: $main-color;
+  font-size: 25px;
+  box-shadow: 0px -3px 5px darkgray;
+  background-color: lighten($main-color-two, 50%);
 }
