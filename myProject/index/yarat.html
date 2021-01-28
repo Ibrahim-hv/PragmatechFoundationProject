@@ -27,14 +27,26 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="padding-bottom: 5px;">
             <div class="salamlama">
                 <div class="col-7">
                     <h2>Yarat Bölməsi</h2>
                     <p>Burada ehtiyacınız olacaq passiv baza haqqında məlumatlar yarada bilərsiniz.</p>
                 </div>
                 <div class="col-2">
-                    <div class="btn"><p>27.01.2021</p></div>
+                    <div class="prayList">
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn"><h2>PRAY LİST</h2></button>
+                            <div id="myDropdown" class="dropdown-content">
+                              <a href="#">Şirkətlərin siyahısı</a>
+                              <a href="#">Müştərilərin siyahısı</a>
+                              <a href="#">Məhsularıın siyahısı</a>
+                              <a href="#">Kassaların siyahısı</a>
+                              <a href="#">Endirimlərin siyahısı</a>
+                              <a href="#">Bizim haqqımızda</a>
+                            </div>
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,16 +134,70 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="totalRevenue">
-                    <div class="totalInfo">
-                        <h3>Balans</h3>
-                        <p>Faktiki olaraq məbləğlə</p>
+                <div class="creatWindow" name="KassaYarat">
+                    <div class="infoPanel">
+                        <h2>Yeni Kassa</h2>
+                    </div>
+                    <div class="creatForm">
+                        <div class="formContainer">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="">
+                                        <label for="text"><b>Kassirin adı</b></label>
+                                        <input type="text" placeholder="Məsul şəxsin adını daxil edin" name="text" id="text" required>
+                                  
+                                        <label for="text"><b>Kassa adı</b></label>
+                                        <input type="text" placeholder="Uyğun bir ad daxil edin" name="text" id="text" required>
+                                  
+                                        <label for="text"><b>Satışdan qaytarmaya icazə:</b></label>
+                                        <br>
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">Verilsin</label>
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">Verilməsin</label>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <button type="submit" class="creatbtn" style="display: block;"><h2>YARAT</h2></button>
+                                </div>
+                            </div>   
+                        </div>
                     </div>
                 </div>
-                <div class="todayStatus">
-                    <div class="todayInfo">
-                        <h3>Balans</h3>
-                        <p>Açıqlama ilə daha ətraflı</p>
+                <div class="creatWindow" name=EndirimYarat>
+                    <div class="infoPanel">
+                        <h2>Endirimlər</h2>
+                    </div>
+                    <div class="creatForm">
+                        <div class="formContainer">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="">
+                                        <label for="text"><b>Endirimin adı</b></label>
+                                        <input type="text" placeholder="Endirim adını daxil edin" name="text" id="text" required>
+                                  
+                                        <label for="text"><b>Endirim faizi</b></label>
+                                        <input type="number" placeholder="Rəqəm daxil edin" name="text" id="text" required>
+                                  
+                                        <label for="text"><b>Nəbilim nə:</b></label>
+                                        <br>
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">Boş</label>
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">Boş</label>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <button type="submit" class="creatbtn" style="display: block;"><h2>YARAT</h2></button>
+                                </div>
+                            </div>   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,87 +211,77 @@
                     <div class="creatForm">
                         <div class="formContainer">
                             <div class="row">
-                                <div class="col-3">
-                                    <form action="">
-                                        <label for="text"><b>Barkod</b></label>
-                                        <input type="text" placeholder="Ştrixkodu bura daxil edin" name="text" id="text" autocomplete="off" required>
-                                  
-                                        <label for="text"><b>Məhsulun adı</b></label>
-                                        <input type="text" placeholder="Tam ərtaflı və doğru qeyd edin" name="text" id="text" required>
-                                  
-                                        <label for="text"><b>Limit təyin edin</b></label>
-                                        <input type="number" placeholder="Limit əsas ölçü vahidi ilə təyin olunur" name="text" id="text" autocomplete="off">
-                                    </form>
+                                <div class="col-12" style="display: flex;">
+                                    <div class="col-4">
+                                        <form action="">
+                                            <label for="text"><b>Barkod</b></label>
+                                            <input type="text" placeholder="Ştrixkodu bura daxil edin" name="text" id="text" autocomplete="off" required>
+                                      
+                                            <label for="text"><b>Məhsulun adı</b></label>
+                                            <input type="text" placeholder="Tam ərtaflı və doğru qeyd edin" name="text" id="text" required>
+                                      
+                                            <label for="text"><b>Limit təyin edin</b></label>
+                                            <input type="number" placeholder="Limit əsas ölçü vahidi ilə təyin olunur" name="text" id="text" autocomplete="off">
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="">
+                                            <label for="text"><b>Əsas ölçü vahidi</b></label>
+                                            <!-- <input type="text" placeholder="Ədəd / Kiloqram / Metrə" name="text" id="text" required> -->
+                                            <!-- <br>
+                                            <input type="radio" id="male" name="gender" value="male">
+                                            <label for="male">Ədəd</label>
+                                            <input type="radio" id="male" name="gender" value="male">
+                                            <label for="male">Kiloqram</label>
+                                            <input type="radio" id="male" name="gender" value="male">
+                                            <label for="male">Metr</label>
+                                            <br> -->
+                                            <div class="custom-select">
+                                                <select>
+                                                  <option value="0">Əsas vahidi seçin:</option>
+                                                  <option value="1">Ədəd</option>
+                                                  <option value="2">Kiloqram</option>
+                                                  <option value="3">Metr</option>
+                                                </select>
+                                              </div>
+                                      
+                                            <label for="text"><b>Bağlama ölçü vahidi</b></label>
+                                            <!-- <input type="text" placeholder="Paçka / Blok / List / Rulon" name="text" id="text" required> -->
+                                            <div class="custom-select">
+                                                <select>
+                                                  <option value="0">Uyğun vahidi seçin:</option>
+                                                  <option value="1">Paçka</option>
+                                                  <option value="2">Blok</option>
+                                                  <option value="3">List</option>
+                                                  <option value="4">Rulon</option>
+                                                </select>
+                                              </div>
+                                      
+                                            <label for="text"><b>Qutu ölçü vahidi</b></label>
+                                            <!-- <input type="text" placeholder="Karobka / Kisə və s." name="text" id="text"> -->
+                                            <div class="custom-select">
+                                                <select>
+                                                  <option value="0">Uyğun vahidi seçin:</option>
+                                                  <option value="1">Karobka</option>
+                                                  <option value="2">Kisə</option>
+                                                </select>
+                                              </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="">
+                                            <label for="number"><b>Əsas ölçü vahidi</b></label>
+                                            <input type="number" placeholder="Həmişə 1 -ə bərabərdir" name="number" id="number" disabled>
+                                      
+                                            <label for="number"><b>Bağlama daxilində olan</b></label>
+                                            <input type="number" placeholder="Əsas ölçü vahidinin sayını daxil edin" name="number" id="number" required>
+                                      
+                                            <label for="number"><b>Qutu daxilində olan</b></label>
+                                            <input type="number" placeholder="Bağlama ölçü vahidinin sayını daxil edin" name="number" id="number">
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="col-3">
-                                    <form action="">
-                                        <label for="number"><b>Alış qiyməti</b></label>
-                                        <input type="number" placeholder="Alış qiymətini daxil edin" name="number" id="number" required>
-                                  
-                                        <label for="number"><b>Satış qiyməti</b></label>
-                                        <input type="number" placeholder="Satış qiymətini daxil edin" name="number" id="number" required>
-                                  
-                                        <label for="number"><b>Topdan satış qiyməti</b></label>
-                                        <input type="number" placeholder="Endirimli satış qiymətini daxil edin" name="number" id="number">
-                                    </form>
                                 </div>
-                                <div class="col-3">
-                                    <form action="">
-                                        <label for="text"><b>Əsas ölçü vahidi</b></label>
-                                        <!-- <input type="text" placeholder="Ədəd / Kiloqram / Metrə" name="text" id="text" required> -->
-                                        <!-- <br>
-                                        <input type="radio" id="male" name="gender" value="male">
-                                        <label for="male">Ədəd</label>
-                                        <input type="radio" id="male" name="gender" value="male">
-                                        <label for="male">Kiloqram</label>
-                                        <input type="radio" id="male" name="gender" value="male">
-                                        <label for="male">Metr</label>
-                                        <br> -->
-                                        <div class="custom-select">
-                                            <select>
-                                              <option value="0">Əsas vahidi seçin:</option>
-                                              <option value="1">Ədəd</option>
-                                              <option value="2">Kiloqram</option>
-                                              <option value="3">Metr</option>
-                                            </select>
-                                          </div>
-                                  
-                                        <label for="text"><b>Bağlama ölçü vahidi</b></label>
-                                        <!-- <input type="text" placeholder="Paçka / Blok / List / Rulon" name="text" id="text" required> -->
-                                        <div class="custom-select">
-                                            <select>
-                                              <option value="0">Uyğun vahidi seçin:</option>
-                                              <option value="1">Paçka</option>
-                                              <option value="2">Blok</option>
-                                              <option value="3">List</option>
-                                              <option value="4">Rulon</option>
-                                            </select>
-                                          </div>
-                                  
-                                        <label for="text"><b>Qutu ölçü vahidi</b></label>
-                                        <!-- <input type="text" placeholder="Karobka / Kisə və s." name="text" id="text"> -->
-                                        <div class="custom-select">
-                                            <select>
-                                              <option value="0">Uyğun vahidi seçin:</option>
-                                              <option value="1">Karobka</option>
-                                              <option value="2">Kisə</option>
-                                            </select>
-                                          </div>
-                                    </form>
-                                </div>
-                                <div class="col-3">
-                                    <form action="">
-                                        <label for="number"><b>Əsas ölçü vahidi</b></label>
-                                        <input type="number" placeholder="Həmişə 1 -ə bərabərdir" name="number" id="number" disabled>
-                                  
-                                        <label for="number"><b>Bağlama daxilində olan</b></label>
-                                        <input type="number" placeholder="Əsas ölçü vahidinin sayını daxil edin" name="number" id="number" required>
-                                  
-                                        <label for="number"><b>Qutu daxilində olan</b></label>
-                                        <input type="number" placeholder="Bağlama ölçü vahidinin sayını daxil edin" name="number" id="number">
-                                    </form>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-10 offset-1">
                                     <button type="submit" class="creatbtn" style="display: block;"><h2>YARAT</h2></button>
