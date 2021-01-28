@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, ul, li {
+body, h1, h2, h3, h4, h5, ul, li, p {
   margin: 0;
   padding: 0;
 }
@@ -2324,4 +2324,463 @@ html {
 
 #socialmedia-channels .box svg {
   size: 90px;
+}
+
+body {
+  background-color: #fbfbfb;
+  font-family: "Lato", sans-serif;
+}
+
+.navBar {
+  height: 60px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 0px;
+  display: inline;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.salamlama {
+  height: 70px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 0px;
+}
+
+.salamlama p {
+  color: gray;
+}
+
+.salamlama .btn {
+  padding: 7px 10px;
+  border: 1px solid #4dbd13;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.salamlama .btn:hover {
+  background-color: #007401;
+  color: white;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  -webkit-transition: margin-left .5s;
+  transition: margin-left .5s;
+  padding: 0px 15px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box {
+  width: 100%;
+  border: 1px solid #4dbd13;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.sale-diaqram {
+  width: 100%;
+  border-radius: 5px;
+  height: 440px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.dia-info {
+  width: 100%;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 25px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.dia-info .btn-sale {
+  padding: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.dia-info .btn-sale:hover {
+  color: white;
+  background-color: #4dbd13;
+}
+
+.activeBox {
+  width: 100%;
+  border-radius: 5px;
+  height: 70px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+  padding: 15px;
+  border: 3px solid white;
+  background-color: #61e81b;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.activeBox:hover {
+  border: 5px solid white;
+  background-color: #4dbd13;
+}
+
+.totalRevenue {
+  width: 100%;
+  border-radius: 5px;
+  height: 150px;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.totalRevenue .totalInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.totalRevenue .totalInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.todayStatus {
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 5px;
+  height: 360px;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.todayStatus .todayInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.todayStatus .todayInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.companyList {
+  width: 100%;
+  border-radius: 5px;
+  height: 340px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.companyList .companyInfo {
+  background-color: #e1fbd4;
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.companyList .companyInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.companyTab {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.companyTab th {
+  padding: 6px 0px;
+  background-color: #61e81b;
+  border-bottom: 1px solid darkgray;
+}
+
+.companyTab td {
+  padding: 5px;
+  text-align: center;
+}
+
+.companyTab td img {
+  height: 40px;
+}
+
+.customerList {
+  width: 100%;
+  border-radius: 5px;
+  height: 340px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+}
+
+.customerList .customerInfo {
+  width: 100%;
+  padding: 10px 20px;
+  height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.customerList .customerInfo p {
+  font-size: 12px;
+  color: gray;
+}
+
+.customerTab {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.customerTab th {
+  padding: 6px 0px;
+  background-color: #61e81b;
+  border-bottom: 1px solid darkgray;
+}
+
+.customerTab td {
+  padding: 5px;
+  text-align: center;
+}
+
+.customerTab td img {
+  height: 40px;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+  color: #007401;
+  font-size: 25px;
+  -webkit-box-shadow: 0px -3px 5px darkgray;
+          box-shadow: 0px -3px 5px darkgray;
+  background-color: #e1fbd4;
+}
+
+.creatWindow {
+  width: 100%;
+  border-radius: 5px;
+  height: 440px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+  margin-bottom: 30px;
+}
+
+.creatWindow .infoPanel {
+  width: 100%;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 25px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.creatProduct {
+  width: 100%;
+  border-radius: 5px;
+  height: 440px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px darkgray;
+          box-shadow: 0px 0px 5px darkgray;
+  margin-bottom: 30px;
+}
+
+.creatProduct .infoPanel {
+  width: 100%;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 25px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.formContainer {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+}
+
+.formContainer input[type=text], .formContainer input[type=tel],
+.formContainer input[type=number], .formContainer input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.formContainer input[type=radio] {
+  margin: 20px 5px 40px 15px;
+}
+
+.formContainer input[type=text]:focus, .formContainer input[type=tel]:focus,
+.formContainer input[type=number]:focus, .formContainer input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.formContainer .creatbtn {
+  background-color: #4dbd13;
+  color: white;
+  padding: 15px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.formContainer .creatbtn:hover {
+  opacity: 1;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 100%;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #4dbd13 transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: #4dbd13;
+  padding: 13px 16px 12px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #ddd;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }
