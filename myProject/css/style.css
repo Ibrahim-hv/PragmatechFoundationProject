@@ -2636,6 +2636,10 @@ body {
   background-color: #e1fbd4;
 }
 
+.col-7 {
+  padding-left: 0px;
+}
+
 .creatWindow {
   width: 100%;
   border-radius: 5px;
@@ -2835,4 +2839,122 @@ body {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.customerList {
+  min-height: 422px;
+}
+
+.welcomeInfo {
+  height: 45px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.selectInfo {
+  width: 100%;
+  padding: 10px 20px;
+  min-height: 56px;
+  background-color: #e1fbd4;
+  border-bottom: 1px solid #4dbd13;
+}
+
+.bottomPanel {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px;
+  display: inline;
+  margin-top: 90px;
+}
+
+.bottomPanel .forNotebtn {
+  background-color: #4dbd13;
+  color: white;
+  padding: 11px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.bottomPanel .forNotebtn:hover {
+  opacity: 1;
+}
+
+.bottomPanel input[type=text], .bottomPanel input[type=tel],
+.bottomPanel input[type=number], .bottomPanel input[type=email] {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.bottomPanel input[type=radio] {
+  margin: 20px 5px 40px 15px;
+}
+
+.bottomPanel input[type=text]:focus, .bottomPanel input[type=tel]:focus,
+.bottomPanel input[type=number]:focus, .bottomPanel input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.bottomPanelmini {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline;
+  margin-top: 40px;
+}
+
+.bottomPanelmini .forNotebtn {
+  background-color: #4dbd13;
+  color: white;
+  padding: 11px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.bottomPanelmini .forNotebtn:hover {
+  opacity: 1;
+}
+
+.bottomPanelmini input[type=text], .bottomPanelmini input[type=tel],
+.bottomPanelmini input[type=number], .bottomPanelmini input[type=email] {
+  width: 100%;
+  padding: 11px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.bottomPanelmini input[type=radio] {
+  margin: 20px 5px 40px 15px;
+}
+
+.bottomPanelmini input[type=text]:focus, .bottomPanelmini input[type=tel]:focus,
+.bottomPanelmini input[type=number]:focus, .bottomPanelmini input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.selectInfo input[type=text], .selectInfo input[type=tel],
+.selectInfo input[type=number], .selectInfo input[type=email] {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.selectInfo input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
 }
