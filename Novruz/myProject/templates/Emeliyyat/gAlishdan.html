@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+
+{% block basePage %}
+
+<style>
+    .col-sm {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .col-sm-4,
+    .col-sm-7,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-6 {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .col-sm-1 {
+        padding-right: 6px;
+    }
+</style>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="mt-0 header-title">Alışdan geri qaytarma sənədi</h4>
+            <p class="text-muted mb-3">Ehtiyyacınız olan dəran çeşidi qədər sətir əlavə edin.</p>
+
+            <form action="#" method="POST" class="form-horizontal well">
+                <fieldset>
+                    <div class="repeater-custom-show-hide">
+                        <!-- 1ci sətir "Sənəd Nömrəsi" -->
+                        <div class="from-group row d-flex mb-5">
+                            <div class="col-sm-2">
+                                <label class="control-label">Sənədin nömrəsi</label>
+                                <input type="number" name="barkod" class="form-control">
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-sm-7">
+                                <label class="control-label">Firmaların adı</label>
+                                <select name="malin_adi" class="form-control">
+                                    <option value="volkswagon" selected="">Volkswagon</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="ford">Ford</option>
+                                </select>
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-sm-3">
+                                <label class="control-label">Tarix</label>
+                                <input type="date" name="vaxt" class="form-control" required="">
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!-- 2ci sətir "Cədvəl adlandırması" -->
+                        <div class="form-group row d-flex align-items-end mb-0">
+                            <div class="col-sm-2">
+                                <label class="control-lebel">Barkod</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-lebel">Dərmanın adı</label>
+                            </div>
+                            <div class="col-sm">
+                                <label class="control-lebel">Vahidi</label>
+                            </div>
+                            <div class="col-sm">
+                                <label class="control-lebel">Miqdarı</label>
+                            </div>
+                            <div class="col-sm">
+                                <label class="control-lebel">Qalıq</label>
+                            </div>
+                            <div class="col-sm">
+                                <label class="control-lebel">Alış q.</label>
+                            </div>
+                            <div class="col-sm">
+                                <label class="control-lebel">Məbləğ</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <label class="control-lebel">Düymə</label>
+                            </div>
+                        </div>
+
+                        <div data-repeater-list="car">
+                            <!-- 3cü sətir "Təklanan qeyd yeri" -->
+                            <div data-repeater-item="">
+                                <div class="form-group row  d-flex align-items-end">
+
+                                    <div class="col-sm-2">
+                                        <!-- <label class="control-label">Barkod</label> -->
+                                        <input type="number" name="barkod" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm-4">
+                                        <!-- <label class="control-label">Dərman adı</label> -->
+                                        <select name="malin_adi" class="form-control">
+                                            <option value="volkswagon" selected="">Volkswagon</option>
+                                            <option value="honda">Honda</option>
+                                            <option value="ford">Ford</option>
+                                        </select>
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Ölçü vahidi</label> -->
+                                        <input type="text" name="vahid" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Miqdarı</label> -->
+                                        <input type="number" name="miqdar" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Anabar qalığı</label> -->
+                                        <input type="text" name="qaliq" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Alış qiyməti</label> -->
+                                        <input type="number" name="alish" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Məbləğ</label> -->
+                                        <input type="number" name="cəm_məbleq" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm-1">
+                                        <span data-repeater-delete="" class="btn btn-gradient-danger btn-sm">
+                                            <span class="far fa-trash-alt mr-1"></span> Sil
+                                        </span>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+
+                            <!-- 4cü sətir "Təkrarlanmayan qeyd yeri" -->
+                            <div data-repeater-item="">
+                                <div class="form-group row  d-flex align-items-end">
+
+                                    <div class="col-sm-2">
+                                        <!-- <label class="control-label">Barkod</label> -->
+                                        <input type="number" name="barkod" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm-4">
+                                        <!-- <label class="control-label">Dərman adı</label> -->
+                                        <select name="malin_adi" class="form-control">
+                                            <option value="volkswagon" selected="">Volkswagon</option>
+                                            <option value="honda">Honda</option>
+                                            <option value="ford">Ford</option>
+                                        </select>
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Ölçü vahidi</label> -->
+                                        <input type="text" name="vahid" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Miqdarı</label> -->
+                                        <input type="number" name="miqdar" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Anabar qalığı</label> -->
+                                        <input type="text" name="qaliq" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Alış qiyməti</label> -->
+                                        <input type="number" name="alish" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm">
+                                        <!-- <label class="control-label">Məbləğ</label> -->
+                                        <input type="number" name="cəm_məbleq" class="form-control">
+                                    </div>
+                                    <!--end col-->
+
+                                    <div class="col-sm-1">
+                                        <span data-repeater-delete="" class="btn btn-gradient-danger btn-sm">
+                                            <span class="far fa-trash-alt mr-1"></span> Sil
+                                        </span>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                        </div>
+
+                        <!-- 5ci və 6cı sətirlər "Cəm məbləğ" və "Düymələr" -->
+                        <div class="form-group row" style="justify-content: flex-end">
+
+                            <div class="col-sm-6">
+                                <label class="control-label">Qeyd yeri</label>
+                                <input type="text" name="kicik_qeyd" class="form-control">
+                            </div>
+                            <!--end col-->
+                            <div class="col-sm-2">
+                                <label class="control-label">Cəm Məbləğ</label>
+                                <input type="number" name="cem_mebleq" class="form-control">
+                            </div>
+                            <!--end col-->
+                            <div class="col-sm-2">
+                                <label class="control-label">Endirim faizi</label>
+                                <input type="number" name="endirim" value="0.00" class="form-control">
+                            </div>
+                            <!--end col-->
+                            <div class="col-sm-2">
+                                <label class="control-label">Son Məbləğ</label>
+                                <input type="number" name="son_mebleq" class="form-control">
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-sm-12 mt-3">
+                                <span data-repeater-create="" class="btn btn-gradient-secondary btn-md">
+                                    <span class="fa fa-plus"></span> Əlavə Et</span>
+                                <input type="submit" value="Təsdiq Et" class="btn btn-gradient-primary">
+                            </div>
+                            <!--end col-->
+                        </div>
+                    </div>
+                    <!--end repeter-->
+                </fieldset>
+                <!--end fieldset-->
+            </form>
+            <!--end form-->
+        </div>
+        <!--end card-body-->
+    </div>
+    <!--end card-->
+</div>
+<!--end col-->
+{% endblock basePage %}

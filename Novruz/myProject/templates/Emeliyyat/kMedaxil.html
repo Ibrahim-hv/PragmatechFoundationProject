@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+{% block basePage %}
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="mt-0 header-title">Kassa mədaxil sənədi</h4>
+            <p class="text-muted mb-3">Ödədinilən borcları və digər pul girişlərini bura qeyd edin.</p>
+
+            <form action="#" method="POST" class="form-horizontal well">
+                <fieldset>
+                    <div class="repeater-custom-show-hide">
+                        <!-- 1ci sətir "Sənəd Nömrəsi" -->
+                        <div class="from-group row d-flex mb-3">
+                            <div class="col-sm-2">
+                                <label class="control-label">Sənədin nömrəsi</label>
+                                <input type="number" name="barkod" class="form-control">
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-sm-7">
+                                <label class="control-label">Ödəniş edən</label>
+                                <select name="malin_adi" class="form-control">
+                                    <option value="volkswagon" selected="">Volkswagon</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="ford">Ford</option>
+                                </select>
+                            </div>
+                            <!--end col-->
+                            
+                            <div class="col-sm-3">
+                                <label class="control-label">Tarix</label>
+                                <input type="date" name="vaxt" class="form-control" required="">
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!-- Qeyd Yeri -->
+                        <div class="form-group row d-flex  mb-1">
+                            <div class="col-sm-12">
+                                <input type="text" name="kicik_qeyd" class="form-control" placeholder="Qeyd yeri">
+                            </div>
+                            <!--end col-->
+                        </div>
+
+                        <!-- 3cü və 4cü sətirlər "Ödəmə yeri" və "Düymə" -->
+                        <div class="form-group row" style="justify-content: flex-end">
+
+                            <div class="col-sm-2">
+                                <label class="control-label">Borcu</label>
+                                <input type="number" name="cem_mebleq" class="form-control">
+                            </div>
+                            <!--end col-->
+                            <div class="col-sm-2">
+                                <label class="control-label">Ödəniş</label>
+                                <input type="number" name="endirim" value="0.00" class="form-control">
+                            </div>
+                            <!--end col-->
+                            <div class="col-sm-2">
+                                <label class="control-label">Son Qalıq</label>
+                                <input type="number" name="son_mebleq" class="form-control">
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-sm-12 mt-3">
+                                <input type="submit" value="Təsdiq Et" class="btn btn-gradient-primary">
+                            </div>
+                            <!--end col-->
+                        </div>
+                    </div>
+                    <!--end repeter-->
+                </fieldset>
+                <!--end fieldset-->
+            </form>
+            <!--end form-->
+        </div>
+        <!--end card-body-->
+    </div>
+    <!--end card-->
+</div>
+<!--end col-->
+{% endblock basePage %}

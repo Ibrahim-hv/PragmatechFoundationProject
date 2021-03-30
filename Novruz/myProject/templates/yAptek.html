@@ -1,190 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8" />
-    <title>Metrica - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../static/assets/images/favicon.ico">
-
-    <!-- DataTables -->
-    <link href="../plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="../plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <!-- Responsive datatable examples -->
-    <link href="../plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
-    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="../static/assets/css/jquery-ui.min.css" rel="stylesheet">
-    <link href="../static/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="../static/assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
-    <link href="../static/assets/css/app.min.css" rel="stylesheet" type="text/css" />
-
-</head>
-
-<body>
-    <div class="page-wrapper">
-
-        <!-- Page Content-->
-        <div class="page-content-tab">
-
-            <div class="container-fluid">
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title">Starter</h4>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="mt-0 header-title">Aptek Yarat</h4>
-                                            <p class="text-muted mb-3">Yaradılan hər yeni aptek, aşağıdakı "Apteklər
-                                                Siyahısı" -na əlavə olunur.</p>
-                                            <form action="/aptekler" method="POST">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="username">Aptek</label>
-                                                            <input type="text" class="form-control" name="aptek_name"
-                                                                required="" placeholder="Aptekin adı">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="username">Əczaçı</label>
-                                                            <input type="text" class="form-control" name="eczaci_name"
-                                                                required="" placeholder="Adı və Soyadı">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="phone">Əlaqə</label>
-                                                            <input type="tel" class="form-control" name="eczaci_tel"
-                                                                required="" placeholder="Əczaçının əlaqə nömrəsi">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="message">Əlavə qeyd yeri</label>
-                                                            <textarea class="form-control" rows="3"
-                                                                name="message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12 text-right">
-                                                        <button type="submit"
-                                                            class="btn btn-gradient-primary px-5 py-2">Əlavə et</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!--end card-body-->
-                                    </div>
-                                    <!--end card-->
-                                </div> <!-- end row -->
+{% block basePage %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title">Aptek Yarat</h4>
+                <p class="text-muted mb-3">Yaradılan hər yeni aptek, aşağıdakı "Apteklər
+                    Siyahısı" -na əlavə olunur.</p>
+                <form action="/aptekler" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="username">Aptek</label>
+                                <input type="text" class="form-control" name="aptek_name" required=""
+                                    placeholder="Aptekin adı">
                             </div>
-                            <!--end page-title-box-->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-
-                                            <h4 class="mt-0 header-title">Apteklərin Siyahısı</h4>
-                                            <p class="text-muted mb-3"> Burda siyahılara baxmaq mümkündür.</p>
-
-                                            <table id="datatable-buttons"
-                                                class="table table-striped table-bordered dt-responsive nowrap"
-                                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                                <thead>
-                                                    <tr>
-                                                        <th>S/n</th>
-                                                        <th>Aptek</th>
-                                                        <th>Əczaçı</th>
-                                                        <th>Əlaqə nömrəsi</th>
-                                                        <th>Digər qeyd</th>
-                                                        <th style="width: 140px;">Sil</th>
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                    {% for aptek in aptekler %}
-                                                    <tr>
-                                                        <td>{{aptek.id}}</td>
-                                                        <td>{{aptek.aptek}}</td>
-                                                        <td>{{aptek.eczaci}}</td>
-                                                        <td>{{aptek.tel}}</td>
-                                                        <td>{{aptek.textarea}}</td>
-                                                        <td>
-                                                            <a href="/delete/{{aptek.id}}"><i class="dripicons-trash mx-2"></i></a>
-                                                            <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
-                                                            <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
                         </div>
-                        <!--end col-->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="username">Əczaçı</label>
+                                <input type="text" class="form-control" name="eczaci_name" required=""
+                                    placeholder="Adı və Soyadı">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="phone">Əlaqə</label>
+                                <input type="tel" class="form-control" name="eczaci_tel" required=""
+                                    placeholder="Əczaçının əlaqə nömrəsi">
+                            </div>
+                        </div>
                     </div>
-                    <!-- end page title end breadcrumb -->
-                </div><!-- container -->
-
-                <footer class="footer text-center text-sm-left">
-                    &copy; 2020 - 2021 HiCloud.az <span class="text-muted d-none d-sm-inline-block float-right">Crafted
-                        with <i class="mdi mdi-heart text-danger"></i> by İbrahim.hv</span>
-                </footer>
-                <!--end footer-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="message">Əlavə qeyd yeri</label>
+                                <textarea class="form-control" rows="3" name="message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="img">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <button type="submit" class="btn btn-gradient-primary px-5 py-2">Əlavə et</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!-- end page content -->
+            <!--end card-body-->
         </div>
-        <!-- end page-wrapper -->
+        <!--end card-->
+    </div> <!-- end row -->
+</div>
+<!--end page-title-box-->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
 
+                <h4 class="mt-0 header-title">Apteklərin Siyahısı</h4>
+                <p class="text-muted mb-3"> Burda siyahılara baxmaq mümkündür.</p>
 
+                <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>S/n</th>
+                            <th>Aptek</th>
+                            <th>Əczaçı</th>
+                            <th>Əlaqə nömrəsi</th>
+                            <th>Digər qeyd</th>
+                            <th style="width: 140px;">Sil</th>
+                        </tr>
+                    </thead>
 
-
-        <!-- jQuery  -->
-        <script src="../static/assets/js/jquery.min.js"></script>
-        <script src="../static/assets/js/jquery-ui.min.js"></script>
-        <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../static/assets/js/metismenu.min.js"></script>
-        <script src="../static/assets/js/waves.js"></script>
-        <script src="../static/assets/js/feather.min.js"></script>
-        <script src="../static/assets/js/jquery.slimscroll.min.js"></script>
-        <script src="../plugins/apexcharts/apexcharts.min.js"></script>
-
-        <!-- Required datatable js -->
-        <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="../plugins/datatables/dataTables.bootstrap4.min.js"></script>
-        <!-- Buttons examples -->
-        <script src="../plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="../plugins/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="../plugins/datatables/jszip.min.js"></script>
-        <script src="../plugins/datatables/pdfmake.min.js"></script>
-        <script src="../plugins/datatables/vfs_fonts.js"></script>
-        <script src="../plugins/datatables/buttons.html5.min.js"></script>
-        <script src="../plugins/datatables/buttons.print.min.js"></script>
-        <script src="../plugins/datatables/buttons.colVis.min.js"></script>
-        <!-- Responsive examples -->
-        <script src="../plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="../plugins/datatables/responsive.bootstrap4.min.js"></script>
-        <script src="../static/assets/pages/jquery.datatable.init.js"></script>
-
-        <!-- App js -->
-        <script src="../static/assets/js/app.js"></script>
-
-</body>
-
-</html>
+                    <tbody>
+                        {% for aptek in aptekler %}
+                        <tr>
+                            <td></td>
+                            <td>{{aptek.aptek}}</td>
+                            <td>{{aptek.eczaci}}</td>
+                            <td>{{aptek.tel}}</td>
+                            <td>{{aptek.textarea}}</td>
+                            <td>
+                                <a href="/delete/{{aptek.id}}"><i class="dripicons-trash mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+{% endblock %}
