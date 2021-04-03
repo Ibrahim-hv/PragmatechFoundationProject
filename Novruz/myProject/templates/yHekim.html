@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 
 {% block basePage %}
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+    table tr>td:first-child {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -8,26 +25,26 @@
                 <h4 class="mt-0 header-title">Yeni Həkim</h4>
                 <p class="text-muted mb-3">Yaradılan hər yeni məlumat, aşağıdakı "Həkimlər Siyahısı" -na əlavə olunur.
                 </p>
-                <form class="">
+                <form action="/hekimler" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">Həkim</label>
-                                <input type="text" class="form-control" id="username" required=""
+                                <input type="text" class="form-control" name="hekim_name" required=""
                                     placeholder="Ad və Soyad">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">İxtisas</label>
-                                <input type="text" class="form-control" id="username" required=""
+                                <input type="text" class="form-control" name="hekim_ixtisas" required=""
                                     placeholder="Həkimin ixtisas sahəsi">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="phone">Əlaqə</label>
-                                <input type="tel" class="form-control" id="phone" required=""
+                                <input type="tel" class="form-control" name="tel_nom" required=""
                                     placeholder="Həkimin əlaqə nömrəsi">
                             </div>
                         </div>
@@ -36,7 +53,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="message">Əlavə qeyd yeri</label>
-                                <textarea class="form-control" rows="3" id="message"></textarea>
+                                <textarea class="form-control" rows="3" name="message"></textarea>
                             </div>
                         </div>
                     </div>
@@ -65,32 +82,30 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
+                            <th>S/n</th>
                             <th>Həkim</th>
                             <th>İxtisas Sahəsi</th>
                             <th>Əlaqə nömrəsi</th>
                             <th>Digər qeyd</th>
+                            <th style="width: 140px;">Sil</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        {% for hekim in hekimler %}
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>Edinburgh</td>
-                            <td>+(994)555222555</td>
-                            <td>61</td>
+                            <td></td>
+                            <td>{{hekim.hekim_adi}}</td>
+                            <td>{{hekim.ixtisas}}</td>
+                            <td>{{hekim.telefon}}</td>
+                            <td>{{hekim.h_textarea}}</td>
+                            <td>
+                                <a href="/h_delete/{{hekim.id}}"><i class="dripicons-trash mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>Edinburgh</td>
-                            <td>+(994)555222555</td>
-                            <td>61</td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>Edinburgh</td>
-                            <td>+(994)555222555</td>
-                            <td>61</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

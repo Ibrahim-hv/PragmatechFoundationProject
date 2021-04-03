@@ -1,32 +1,49 @@
 {% extends "base.html" %}
 
 {% block basePage %}
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+    table tr>td:first-child {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="mt-0 header-title">Firma Yarat</h4>
                 <p class="text-muted mb-3">Yaradılan hər yeni firma, aşağıdakı "Firmalar Siyahısı" -na əlavə olunur.</p>
-                <form class="">
+                <form action="/firmalar" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">Şirkət</label>
-                                <input type="text" class="form-control" id="username" required=""
+                                <input type="text" class="form-control" name="firma_name" required=""
                                     placeholder="Şirkətin adı">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="useremail">Email</label>
-                                <input type="email" class="form-control" id="useremail" required=""
+                                <input type="email" class="form-control" name="email" required=""
                                     placeholder="Şirkətin email ünvanı">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="phone">Əlaqə</label>
-                                <input type="tel" class="form-control" id="phone" required=""
+                                <input type="tel" class="form-control" name="elaqe" required=""
                                     placeholder="Şirkətin əlaqə nömrəsi">
                             </div>
                         </div>
@@ -35,7 +52,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="message">Əlavə qeyd yeri</label>
-                                <textarea class="form-control" rows="3" id="message"></textarea>
+                                <textarea class="form-control" rows="3" name="message"></textarea>
                             </div>
                         </div>
                     </div>
@@ -64,32 +81,30 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
+                            <th>S/n</th>
                             <th>Şirkət adı</th>
                             <th>Əlaqə nömrəsi</th>
                             <th>Email ünvanı</th>
                             <th>Digər qeyd</th>
+                            <th style="width: 140px;">Sil</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        {% for firma in firmalar %}
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>+(994)555222555</td>
-                            <td>Edinburgh@gmail.com</td>
-                            <td>61</td>
+                            <td></td>
+                            <td>{{firma.shirket}}</td>
+                            <td>{{firma.email}}</td>
+                            <td>{{firma.elaqe}}</td>
+                            <td>{{firma.f_textarea}}</td>
+                            <td>
+                                <a href="/f_delete/{{firma.id}}"><i class="dripicons-trash mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>+(994)555500555</td>
-                            <td>Tokyo@gmail.com</td>
-                            <td>63</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>+(994)555555555</td>
-                            <td>Francisco@gmail.com</td>
-                            <td>66</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

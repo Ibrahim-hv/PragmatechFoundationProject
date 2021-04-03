@@ -8,12 +8,35 @@ db=SQLAlchemy(app)
 
 class Aptek(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    sn=db.Column(db.Integer)
     aptek=db.Column(db.String(70))
     eczaci=db.Column(db.String(70))
     tel=db.Column(db.String(70))
+    a_textarea=db.Column(db.String(250))
+
+class Firma(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    shirket=db.Column(db.String(70))
+    email=db.Column(db.String(70))
+    elaqe=db.Column(db.String(70))
+    f_textarea=db.Column(db.String(250))
+
+class Derman(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    barkod=db.Column(db.String(70))
+    derman_adi=db.Column(db.String(70))
+    terkib=db.Column(db.String(70))
+    vahid=db.Column(db.String(70))
+    ich_sayi=db.Column(db.String(70))
+    tarix=db.Column(db.String(70))
     img=db.Column(db.String(120))
-    textarea=db.Column(db.String(250))
+    d_textarea=db.Column(db.String(250))
+
+class Hekim(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    hekim_adi=db.Column(db.String(70))
+    ixtisas=db.Column(db.String(70))
+    telefon=db.Column(db.String(70))
+    h_textarea=db.Column(db.String(250))
 
 
 
@@ -23,9 +46,27 @@ def base():
 
 
 # Firmalari qeyde alan database:
-@app.route("/firmalar")
+@app.route("/firmalar", methods=['GET','POST'])
 def firma():
-    return render_template('yFirma.html')
+    if request.method=='POST':
+        firma=request.form['firma_name']
+        email=request.form['email']
+        elaqe=request.form['elaqe']
+        qeyd=request.form['message']
+        firmalar=Firma(shirket=firma, email=email, elaqe=elaqe, f_textarea=qeyd)
+        db.session.add(firmalar)
+        db.session.commit()
+        return redirect('/firmalar')
+    ButunFirmalar=Firma.query.all()
+    return render_template('yFirma.html', firmalar=ButunFirmalar)
+
+# Firmalar siyahisindan silmek ucun:
+@app.route('/f_delete/<id>')
+def delet_f(id):
+    F_Delete=Firma.query.get(id)
+    db.session.delete(F_Delete)
+    db.session.commit()
+    return redirect('/firmalar')
 
 
 # Aptekleri qeyde alan database:
@@ -36,7 +77,7 @@ def aptek():
         eczaci=request.form['eczaci_name']
         telefon=request.form['eczaci_tel']
         qeyd=request.form['message']
-        aptekler=Aptek(aptek=aptek, eczaci=eczaci, tel=telefon, textarea=qeyd)
+        aptekler=Aptek(aptek=aptek, eczaci=eczaci, tel=telefon, a_textarea=qeyd)
         db.session.add(aptekler)
         db.session.commit()
         return redirect('/aptekler')
@@ -44,23 +85,64 @@ def aptek():
     return render_template('yAptek.html', aptekler=ButunAptekler)
 
 # Aptekler siyahisindan silmek ucun:
-@app.route('/delete/<id>')
-def delet(id):
-    ForDelete=Aptek.query.get(id)
-    db.session.delete(ForDelete)
+@app.route('/a_delete/<id>')
+def delet_a(id):
+    A_Delete=Aptek.query.get(id)
+    db.session.delete(A_Delete)
     db.session.commit()
     return redirect('/aptekler')
 
 # Hekimleri qeyde alan database:
-@app.route("/hekimler")
+@app.route("/hekimler", methods=['GET','POST'])
 def hekim():
-    return render_template('yHekim.html')
+    if request.method=='POST':
+        hekim=request.form['hekim_name']
+        ixtisas=request.form['hekim_ixtisas']
+        tel_elaqe=request.form['tel_nom']
+        qeyd=request.form['message']
+        hekimler=Hekim(hekim_adi=hekim, ixtisas=ixtisas, telefon=tel_elaqe, h_textarea=qeyd)
+        db.session.add(hekimler)
+        db.session.commit()
+        return redirect('/hekimler')
+    ButunHekimler=Hekim.query.all()
+    return render_template('yHekim.html', hekimler=ButunHekimler)
+
+# Hekimlerler siyahisindan silmek ucun:
+@app.route('/h_delete/<id>')
+def delet_h(id):
+    H_Delete=Hekim.query.get(id)
+    db.session.delete(H_Delete)
+    db.session.commit()
+    return redirect('/hekimler')
+
 
 
 # Dermanlari qeyde alan database:
-@app.route("/dermanlar")
+@app.route("/dermanlar", methods=['GET','POST'])
 def derman():
-    return render_template('yDerman.html')
+    if request.method=='POST':
+        barkodu=request.form['barcode']
+        adi=request.form['derman_name']
+        terkibi=request.form['terkib']
+        vahidi=request.form['vahid']
+        ichsayi=request.form['ichsayi']
+        tarixi=request.form['end_date']
+        shekli=request.form['img']
+        dermanlar=Derman(barkod=barkodu, derman_adi=adi, terkib=terkibi,
+        vahid=vahidi, ich_sayi=ichsayi, tarix=tarixi, img=shekli)
+        db.session.add(dermanlar)
+        db.session.commit()
+        return redirect('/dermanlar')
+    ButunDermanlar=Derman.query.all()
+    return render_template('yDerman.html', dermanlar=ButunDermanlar)
+
+# Dermanlar siyahisindan silmek ucun:
+@app.route('/d_delete/<id>')
+def delet_d(id):
+    D_Delete=Derman.query.get(id)
+    db.session.delete(D_Delete)
+    db.session.commit()
+    return redirect('/dermanlar')
 
 
 # Emeliyyatlar Bolmesi

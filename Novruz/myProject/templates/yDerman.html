@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 
 {% block basePage %}
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+    table tr>td:first-child {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -8,24 +25,24 @@
                 <h4 class="mt-0 header-title">Yeni Dərman Yarat</h4>
                 <p class="text-muted mb-3">Yaradılan hər yeni dərman, aşağıdakı "Dərmanlar Siyahısı" -na əlavə olunur.
                 </p>
-                <form class="">
+                <form action="/dermanlar" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="barcode">Barkod</label>
-                                <input type="number" class="form-control" id="barcode">
+                                <input type="number" class="form-control" name="barcode">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">Dərman</label>
-                                <input type="text" class="form-control" id="username" required=""
+                                <input type="text" class="form-control" name="derman_name" required=""
                                     placeholder="Dərmanın adı">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label">Tərkibi</label>
-                            <select name="car[0][make]" class="form-control">
+                            <select name="terkib" class="form-control">
                                 <option value="qutu" selected="">Ədəd</option>
                                 <option value="knv">Kanvalyut</option>
                                 <option value="fl">Flakon</option>
@@ -40,12 +57,12 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="date">Son istifadə tarixi</label>
-                                <input type="date" class="form-control" id="date">
+                                <input type="date" class="form-control" name="end_date">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label">Əsas ölçü vahidi</label>
-                            <select name="car[0][make]" class="form-control">
+                            <select name="vahid" class="form-control">
                                 <option value="qutu" selected="">Qutu</option>
                                 <option value="eded">Ədəd</option>
                                 <option value="knv">Kanvalyut</option>
@@ -59,9 +76,12 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="count">İç Sayı</label>
-                                <input type="number" class="form-control" id="count" required="" placeholder="0">
+                                <input type="number" class="form-control" name="ichsayi" required="" placeholder="0">
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="img">
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-right">
@@ -88,24 +108,34 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
+                            <th>S/n</th>
                             <th>Barkod</th>
                             <th>Dərman adı</th>
                             <th>Tərkibi</th>
                             <th>Ölçü vahidi</th>
                             <th>İç sayı</th>
                             <th>Son tarix</th>
+                            <th style="width: 140px;">Sil</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        {% for derman in dermanlar %}
                         <tr>
-                            <td>460747251552</td>
-                            <td>Nol Paza</td>
-                            <td>Tabletka</td>
-                            <td>Qutu</td>
-                            <td>30</td>
-                            <td>11/10/2021</td>
+                            <td></td>
+                            <td>{{derman.barkod}}</td>
+                            <td>{{derman.derman_adi}}</td>
+                            <td>{{derman.terkib}}</td>
+                            <td>{{derman.vahid}}</td>
+                            <td>{{derman.ich_sayi}}</td>
+                            <td>{{derman.tarix}}</td>
+                            <td>
+                                <a href="/d_delete/{{derman.id}}"><i class="dripicons-trash mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
+                                <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
+                            </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
