@@ -29,23 +29,24 @@
             <h4 class="mt-0 header-title">Dərman alış sənədi</h4>
             <p class="text-muted mb-3">Alacağınız dəran çeşidi qədər sətir əlavə edin.</p>
 
-            <form action="#" method="POST" class="form-horizontal well">
+            <form action="/alish" method="POST" class="form-horizontal well">
                 <fieldset>
                     <div class="repeater-custom-show-hide">
                         <!-- 1ci sətir "Sənəd Nömrəsi" -->
                         <div class="from-group row d-flex mb-5">
                             <div class="col-sm-2">
                                 <label class="control-label">Sənədin nömrəsi</label>
-                                <input type="number" name="barkod" class="form-control">
+                                <input type="number" name="id" class="form-control">
                             </div>
                             <!--end col-->
 
                             <div class="col-sm-7">
                                 <label class="control-label">Firmaların adı</label>
-                                <select name="malin_adi" class="form-control">
-                                    <option value="volkswagon" selected="">Volkswagon</option>
-                                    <option value="honda">Honda</option>
-                                    <option value="ford">Ford</option>
+                                <select name="firma" class="form-control">
+                                    <option selected=""></option>
+                                    {% for firma in firmalar %}
+                                    <option value="{{firma.id}}">{{firma.shirket}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <!--end col-->
@@ -101,9 +102,10 @@
                                     <div class="col-sm-4">
                                         <!-- <label class="control-label">Dərman adı</label> -->
                                         <select name="malin_adi" class="form-control">
-                                            <option value="volkswagon" selected="">Volkswagon</option>
-                                            <option value="honda">Honda</option>
-                                            <option value="ford">Ford</option>
+                                            <option selected=""></option>
+                                            {% for derman in dermanlar %}
+                                            <option value="{{derman.id}}">{{derman.derman_adi}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                     <!--end col-->
@@ -140,7 +142,7 @@
 
                                     <div class="col-sm">
                                         <!-- <label class="control-label">Məbləğ</label> -->
-                                        <input type="number" name="cəm_məbleq" class="form-control">
+                                        <input type="number" name="məbleq" class="form-control">
                                     </div>
                                     <!--end col-->
 
@@ -167,9 +169,10 @@
                                     <div class="col-sm-4">
                                         <!-- <label class="control-label">Dərman adı</label> -->
                                         <select name="malin_adi" class="form-control">
-                                            <option value="volkswagon" selected="">Volkswagon</option>
-                                            <option value="honda">Honda</option>
-                                            <option value="ford">Ford</option>
+                                            <option selected=""></option>
+                                            {% for derman in dermanlar %}
+                                            <option value="{{derman.id}}">{{derman.derman_adi}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                     <!--end col-->
@@ -206,7 +209,7 @@
 
                                     <div class="col-sm">
                                         <!-- <label class="control-label">Məbləğ</label> -->
-                                        <input type="number" name="cəm_məbleq" class="form-control">
+                                        <input type="number" name="məbleq" class="form-control">
                                     </div>
                                     <!--end col-->
 

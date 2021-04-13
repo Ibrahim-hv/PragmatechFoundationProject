@@ -1,12 +1,18 @@
 from flask import Flask,render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+from flask_migrate import Migrate
+import os
 
 app=Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///database/data.db'
+app.config['UPLOAD_PATH']='static/uploads'
 db=SQLAlchemy(app)
+migrate=Migrate(app,db)
 
 class Aptek(db.Model):
+    __tablename__='aptek'
     id=db.Column(db.Integer,primary_key=True)
     aptek=db.Column(db.String(70))
     eczaci=db.Column(db.String(70))
@@ -14,13 +20,16 @@ class Aptek(db.Model):
     a_textarea=db.Column(db.String(250))
 
 class Firma(db.Model):
+    __tablename__='firma'
     id=db.Column(db.Integer,primary_key=True)
     shirket=db.Column(db.String(70))
     email=db.Column(db.String(70))
     elaqe=db.Column(db.String(70))
     f_textarea=db.Column(db.String(250))
+    operation_FA=db.relationship('Alish',backref='firma')
 
 class Derman(db.Model):
+    __tablename__='derman'
     id=db.Column(db.Integer,primary_key=True)
     barkod=db.Column(db.String(70))
     derman_adi=db.Column(db.String(70))
@@ -30,14 +39,32 @@ class Derman(db.Model):
     tarix=db.Column(db.String(70))
     img=db.Column(db.String(120))
     d_textarea=db.Column(db.String(250))
+    operation_DA=db.relationship('Alish',backref='derman')
+
 
 class Hekim(db.Model):
+    __tablename__='hekim'
     id=db.Column(db.Integer,primary_key=True)
     hekim_adi=db.Column(db.String(70))
     ixtisas=db.Column(db.String(70))
     telefon=db.Column(db.String(70))
     h_textarea=db.Column(db.String(250))
 
+
+class Alish(db.Model):
+    __tablename__='alish'
+    id=db.Column(db.Integer,primary_key=True)
+    tarix=db.Column(db.String(70))
+    miqdar=db.Column(db.String(70))
+    alish_qiymeti=db.Column(db.String(70))
+    satish_qiymeti=db.Column(db.String(70))
+    qeyd_yeri=db.Column(db.String(250))
+    endirim=db.Column(db.String(70))
+    barkod=db.Column(db.String(30))
+    vahid=db.Column(db.String(10))
+    mebleg=db.Column(db.String(70))
+    firma_id=db.Column(db.Integer,db.ForeignKey('firma.id'))
+    derman_id=db.Column(db.Integer,db.ForeignKey('derman.id'))
 
 
 @app.route("/")
@@ -121,15 +148,19 @@ def delet_h(id):
 @app.route("/dermanlar", methods=['GET','POST'])
 def derman():
     if request.method=='POST':
+        file=request.files['img']
+        filename=secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_PATH'],filename))
         barkodu=request.form['barcode']
         adi=request.form['derman_name']
         terkibi=request.form['terkib']
         vahidi=request.form['vahid']
         ichsayi=request.form['ichsayi']
         tarixi=request.form['end_date']
-        shekli=request.form['img']
+        shekli=filename
+        melumat=request.form['message']
         dermanlar=Derman(barkod=barkodu, derman_adi=adi, terkib=terkibi,
-        vahid=vahidi, ich_sayi=ichsayi, tarix=tarixi, img=shekli)
+        vahid=vahidi, ich_sayi=ichsayi, tarix=tarixi, img=shekli, d_textarea=melumat)
         db.session.add(dermanlar)
         db.session.commit()
         return redirect('/dermanlar')
@@ -144,12 +175,62 @@ def delet_d(id):
     db.session.commit()
     return redirect('/dermanlar')
 
+# Dermanlari yenilemek ucun: AMMA İŞLƏMİR!!!!!!!!!
+@app.route('/d_yenile/<id>', methods=['GET','POST'])
+def yenile(id):
+    dermanYenile=Derman.query.get(id)
+    if request.method=='POST':
+
+        # form melumatlari
+        terkibi=request.form['terkib']
+        tarixi=request.form['end_date']
+        melumat=request.form['message']
+
+        # secilmish melumatlari yenile
+        dermanYenile.terkib=terkibi
+        dermanYenile.end_data=tarixi
+        dermanYenile.message=melumat
+
+        return redirect('/dermanlar')
+    return render_template('Diger/dYenile.html', derman=dermanYenile)
+
+# Derman Haqqinda
+@app.route('/haqqinda/<id>')
+def haqqinda(id):
+    DermanHaqqinda=Derman.query.get(id)
+    return render_template('Diger/dHaqqinda.html', derman=DermanHaqqinda)
+
 
 # Emeliyyatlar Bolmesi
 # Alish emeliyyati
-@app.route("/alish")
+@app.route("/alish", methods=['GET','POST'])
 def alish():
-    return render_template('Emeliyyat/alish.html')
+    firma=Firma.query.all()
+    derman=Derman.query.all()
+    if request.method=='POST':
+        shirket=request.form['firma']
+        tarix=request.form['vaxt']
+        barkodu=request.form['barkod']
+        derman=request.form['malin_adi']
+        vahidi=request.form['vahid']
+        alish_miqdari=request.form['miqdar']
+        anbarda_qaliq=request.form['qaliq']
+        Aqiymeti=request.form['alish']
+        Sqiymeti=request.form['satish']
+        setir_cemi=request.form['məbleq']
+        qeyd=request.form['kicik_qeyd']
+        sutun_cemi=request.form['cem_mebleq']
+        endirim=request.form['endirim']
+        toplam=request.form['son_mebleq']
+        emeliyyat=Alish(firma_id=shirket, tarix=tarix, barkod=barkodu, derman_id=derman,
+        vahid=vahidi, miqdar=alish_miqdari, alish_qiymeti=Aqiymeti,
+        satish_qiymeti=Sqiymeti, qeyd_yeri=qeyd, endirim=endirim, mebleg=toplam)
+        db.session.add(emeliyyat)
+        db.session.commit()
+        return redirect('/alish')
+    AlishEmeliyyati=Alish.query.all()
+    return render_template('Emeliyyat/alish.html', emeliyyat=AlishEmeliyyati,
+    firmalar=firma, dermanlar=derman)
 
 # Satish emeliyyati
 @app.route("/satish")
@@ -284,6 +365,14 @@ def dermanlar_U():
 @app.route("/balans")
 def balans():
     return render_template('Hesabatlar/balans.html')
+
+# Digerler Bolmesi
+# Derman Kataloqu
+@app.route("/kataloq")
+def katalog():
+    ButunDermanlar=Derman.query.all()
+    return render_template('Diger/dKatalog.html', dermanlar=ButunDermanlar)
+
 
 
 

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block basePage %}
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+    table tr>td:first-child {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title">{{derman.derman_adi}} -adlı dərmanı yenilə</h4>
+                <p class="text-muted mb-3">Burada dərmanın bəzi xüsusiyyətlərinin yenilənməsinə icazə verilir.</p>
+                <form action='/d_yenile/{{derman.id}}' method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Tərkibi</label>
+                            <select name="terkib" class="form-control">
+                                <option selected="">{{derman.terkib}}</option>
+                                <option >Kanvalyut</option>
+                                <option >Ədəd</option>
+                                <option >Flakon</option>
+                                <option >Sprey</option>
+                                <option >Sirop</option>
+                                <option >Tabletka</option>
+                                <option >Ampula</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="date">Son istifadə tarixi</label>
+                                <input type="date" class="form-control" name="end_date" value="{{derman.tarix}}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="message">Əlavə qeyd yeri</label>
+                                <textarea class="form-control" rows="3" name="message">{{derman.d_textarea}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <button type="submit" class="btn btn-gradient-primary px-5 py-2">Yenilə</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--end card-body-->
+        </div>
+        <!--end card-->
+    </div> <!-- end row -->
+</div>
+<!--end page-title-box-->
+{% endblock %}

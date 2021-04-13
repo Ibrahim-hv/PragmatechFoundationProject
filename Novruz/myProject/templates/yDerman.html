@@ -25,7 +25,7 @@
                 <h4 class="mt-0 header-title">Yeni Dərman Yarat</h4>
                 <p class="text-muted mb-3">Yaradılan hər yeni dərman, aşağıdakı "Dərmanlar Siyahısı" -na əlavə olunur.
                 </p>
-                <form action="/dermanlar" method="POST">
+                <form action="/dermanlar" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -43,13 +43,13 @@
                         <div class="col-md-4">
                             <label class="control-label">Tərkibi</label>
                             <select name="terkib" class="form-control">
-                                <option value="ədəd" selected="">Ədəd</option>
-                                <option value="knv">Kanvalyut</option>
-                                <option value="fl">Flakon</option>
-                                <option value="spr">Sprey</option>
-                                <option value="srp">Sirop</option>
-                                <option value="tab">Tabletka</option>
-                                <option value="amp">Ampula</option>
+                                <option selected="">Ədəd</option>
+                                <option >Kanvalyut</option>
+                                <option >Flakon</option>
+                                <option >Sprey</option>
+                                <option >Sirop</option>
+                                <option >Tabletka</option>
+                                <option >Ampula</option>
                             </select>
                         </div>
                     </div>
@@ -63,20 +63,26 @@
                         <div class="col-md-4">
                             <label class="control-label">Əsas ölçü vahidi</label>
                             <select name="vahid" class="form-control">
-                                <option value="qutu" selected="">Qutu</option>
-                                <option value="ədəd">Ədəd</option>
-                                <option value="knv">Kanvalyut</option>
-                                <option value="fl">Flakon</option>
-                                <option value="spr">Sprey</option>
-                                <option value="srp">Sirop</option>
-                                <option value="tab">Tabletka</option>
-                                <option value="amp">Ampula</option>
+                                <option selected="">Qutu</option>
+                                <option>Ədəd</option>
+                                <option>Kanvalyut</option>
+                                <option>Flakon</option>
+                                <option>Sprey</option>
+                                <option>Sirop</option>
+                                <option>Tabletka</option>
+                                <option>Ampula</option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="count">İç Sayı</label>
                                 <input type="number" class="form-control" name="ichsayi" required="" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="message">Əlavə qeyd yeri</label>
+                                <textarea class="form-control" rows="3" name="message"></textarea>
                             </div>
                         </div>
                     </div>
@@ -131,8 +137,8 @@
                             <td>{{derman.tarix}}</td>
                             <td>
                                 <a href="/d_delete/{{derman.id}}"><i class="dripicons-trash mx-2"></i></a>
-                                <a href="#"><i class="mdi mdi-eye-circle mx-2"></i></a>
-                                <a href="#"><i class="mdi mdi-pencil-outline mx-2"></i></a>
+                                <a href="/haqqinda/{{derman.id}}"><i class="mdi mdi-eye-circle mx-2"></i></a>
+                                <a href="/d_yenile/{{derman.id}}"><i class="mdi mdi-pencil-outline mx-2"></i></a>
                             </td>
                         </tr>
                         {% endfor %}
