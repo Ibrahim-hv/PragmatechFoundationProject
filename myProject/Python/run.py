@@ -4,7 +4,8 @@ def Foo():
     c=int(a)+int(b)
     print(c)
     print(c/2)
-# Foo()
+    """[summary]
+    """# Foo()
 
 a='admin'
 b='123456'
